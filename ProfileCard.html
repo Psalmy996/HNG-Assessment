@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Card</title>
+    <style>
+      :root {
+        --bg: #f9fafb;
+        --card-bg: #fff;
+        --text: #111827;
+        --muted: #6b7280;
+        --accent: #6366f1;
+        --border: #e5e7eb;
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        --radius: 14px;
+        --font-main: "Inter", system-ui, sans-serif;
+      }
+
+      body {
+        font-family: var(--font-main);
+        background-color: var(--bg);
+        color: var(--text);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        min-height: 100vh;
+      }
+
+      article[data-testid="test-profile-card"] {
+        background-color: var(--card-bg);
+        box-shadow: var(--shadow);
+        border-radius: var(--radius);
+        max-width: 800px;
+        width: 100%;
+        padding: 2rem;
+        transition: transform 0.2s ease;
+      }
+
+      article[data-testid="test-profile-card"]:hover {
+        transform: translateY(-4px);
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        background-color: #f5f1f1;
+        border-bottom: 1px solid var(--border);
+        padding: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        border-top-left-radius: 14px;
+        border-top-right-radius: 14px;
+        overflow: hidden;
+      }
+
+      figure {
+        margin: 0;
+      }
+
+      figure img[data-testid="test-user-avatar"] {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--accent);
+        transition: transform 0.3s ease;
+      }
+
+      figure img[data-testid="test-user-avatar"]:hover {
+        transform: scale(1.05);
+      }
+
+      h2[data-testid="test-user-name"] {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .time {
+        display: inline-block;
+        background-color: #eef2ff;
+        color: var(--accent);
+        border-radius: 6px;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      p[data-testid="test-user-bio"] {
+        margin-top: 1rem;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+
+      .section-divider {
+        border-top: 1px solid var(--border);
+        margin: 1.5rem 0;
+      }
+
+      section[aria-label="Social Media Links"] h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+      }
+
+      nav[data-testid="test-user-social-links"] {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      nav[data-testid="test-user-social-links"] img {
+        width: 22px;
+        height: 22px;
+        border-radius: 4px;
+        object-fit: cover;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      nav[data-testid="test-user-social-links"] img:hover {
+        transform: scale(1.1);
+        box-shadow: 0 2px 6px rgba(99, 102, 241, 0.2);
+      }
+
+      nav[data-testid="test-user-social-links"] a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s ease;
+      }
+
+      nav[data-testid="test-user-social-links"] a:hover,
+      nav[data-testid="test-user-social-links"] a:focus {
+        color: #4338ca;
+        outline: none;
+      }
+
+      .lists {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+
+      section h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      ul {
+        list-style: disc;
+        margin: 0;
+        padding-left: 1.5rem;
+        color: var(--muted);
+      }
+
+      li {
+        margin-bottom: 0.4rem;
+      }
+
+      @media (max-width: 600px) {
+        header {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        figure img[data-testid="test-user-avatar"] {
+          width: 100px;
+          height: 100px;
+        }
+
+        .lists {
+          flex-direction: column;
+        }
+
+        nav[data-testid="test-user-social-links"] {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <article data-testid="test-profile-card" aria-label="Profile Card">
+      <header>
+        <figure>
+          <img
+            src="./image/IMG-20220101-WA0029.jpg"
+            alt="Profile photo of Psalmy"
+            data-testid="test-user-avatar"
+          />
+        </figure>
+        <div>
+          <h2 data-testid="test-user-name">Psalmy</h2>
+          <div class="time" data-testid="test-user-time"></div>
+        </div>
+      </header>
+      <p data-testid="test-user-bio">
+        Frontend developer with a passion for creating accessible and
+        user-friendly web experiences. Music enthusiast and sporty lover.
+      </p>
+
+      <div class="section-divider"></div>
+      <section aria-label="Social Media Links">
+        <h3>Follow Me</h3>
+        <nav
+          data-testid="test-user-social-links"
+          aria-label="Social Media Links"
+        >
+          <img src="./image/png-.png" alt="" />
+          <a
+            href="https://github.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="test-user-social-github"
+          >
+            GitHub</a
+          >
+          <img src="./image/twitter.jpg" alt="" />
+          <a
+            href="https://X.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="test-user-social-linkedin"
+          >
+            X.com</a
+          >
+        </nav>
+      </section>
+      <div class="section-divider"></div>
+
+      <div class="lists">
+        <section>
+          <h3>Hobbies</h3>
+          <ul data-testid="test-user-hobbies">
+            <li>
+              writing engaging content and building user-friendly interfaces
+            </li>
+            <li>Watching football and reading</li>
+            <li>Playing Saxophone</li>
+            <li>Finding the love of my life</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Dislikes</h3>
+          <ul data-testid="test-user-dislikes">
+            <li>Lies</li>
+            <li>Poverty</li>
+            <li>People who are not fun</li>
+            <li>Greedy</li>
+          </ul>
+        </section>
+      </div>
+    </article>
+
+    <script>
+      const timeElement = document.querySelector(
+        '[data-testid="test-user-time"]'
+      );
+      function updateTime() {
+        timeElement.textContent = `Current Time (ms): ${Date.now()}`;
+      }
+      updateTime();
+      setInterval(updateTime, 1000);
+    </script>
+  </body>
+</html>
